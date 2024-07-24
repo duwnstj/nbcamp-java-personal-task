@@ -1,12 +1,13 @@
 package calculator;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        List<Integer> calculationResult = new ArrayList<>();
+        int[] calculationResult = new int[5];
         int count = 0;
         Scanner sc = new Scanner(System.in);
 
@@ -48,18 +49,27 @@ public class App {
                 default:
                     System.out.println("사칙연산을 다시 입력해주세요");
                     break;
+
             }
-            for (int i = 0; i < calculationResult.size(); i++) {
-                calculationResult.add(result);
-                if (count > 10) {
-                    calculationResult.remove(0);
-                    calculationResult.add(result);
+
+
+            if (count < 5) {
+                calculationResult[count] = result;
+
+
+            } else {
+                for (int i = 1; i < calculationResult.length; i++) {
+                    calculationResult[i - 1] = calculationResult[i];
                 }
+                calculationResult[calculationResult.length - 1] = result;
 
             }
-            count++;
+            ++count;
             System.out.println("count : " + count);
+            System.out.println(Arrays.toString(calculationResult));
 
+
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제 하시겠습니까? (remove 입력시 삭제)");
             sc.nextLine();
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String src = sc.nextLine();
@@ -67,10 +77,11 @@ public class App {
             if (src.equals("exit")) {
                 break;
             }
-
-
         }
+
     }
 }
+
+
 
 
