@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        int[] calculationResult = new int[10];
-        int count = 0;
+        List<Integer> calculationResult = new ArrayList<>();
+
         Scanner sc = new Scanner(System.in);
 
         while (true) {
@@ -49,26 +49,15 @@ public class App {
                 default:
                     System.out.println("사칙연산을 다시 입력해주세요");
                     break;
-
             }
-
-
-            if (count < 10) {
-                calculationResult[count] = result;
-            } else {
-                for (int i = 1; i < calculationResult.length; i++) {
-                    calculationResult[i - 1] = calculationResult[i];
-                }
-                calculationResult[calculationResult.length - 1] = result;
-
-            }
-            ++count;
-            System.out.println("count : " + count);
-            System.out.println(Arrays.toString(calculationResult));
-
-
-            System.out.println("가장 먼저 저장된 연산 결과를 삭제 하시겠습니까? (remove 입력시 삭제)");
+            calculationResult.add(result);
+            System.out.println(calculationResult.toString());
             sc.nextLine();
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제 하시겠습니까?  (remove 입력시 삭제)");
+            String str2 = sc.nextLine();
+            if (str2.equals("remove")) {
+                calculationResult.remove(0);
+            }
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String src = sc.nextLine();
 
