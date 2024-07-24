@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        int[] calculationResult = new int[5];
+        int[] calculationResult = new int[10];
         int count = 0;
         Scanner sc = new Scanner(System.in);
 
@@ -53,10 +53,8 @@ public class App {
             }
 
 
-            if (count < 5) {
+            if (count < 10) {
                 calculationResult[count] = result;
-
-
             } else {
                 for (int i = 1; i < calculationResult.length; i++) {
                     calculationResult[i - 1] = calculationResult[i];
