@@ -1,10 +1,12 @@
 package calculator;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        int[] calculationResult = new int[10];
+        List<Integer> calculationResult = new ArrayList<>();
         int count = 0;
         Scanner sc = new Scanner(System.in);
 
@@ -47,16 +49,21 @@ public class App {
                     System.out.println("사칙연산을 다시 입력해주세요");
                     break;
             }
-            for (int i = 0; i < calculationResult.length; i++) {
-                calculationResult[i] = result;
+            for (int i = 0; i < calculationResult.size(); i++) {
+                calculationResult.add(result);
+                if (count > 10) {
+                    calculationResult.remove(0);
+                    calculationResult.add(result);
+                }
 
             }
             count++;
             System.out.println("count : " + count);
 
-            System.out.println("더 계산하시겠습니까? (아무 문자 입력시 더 계산) (exit 입력 시 종료)");
-            String src = sc.next();
-            
+            sc.nextLine();
+            System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
+            String src = sc.nextLine();
+
             if (src.equals("exit")) {
                 break;
             }
