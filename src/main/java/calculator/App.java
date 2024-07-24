@@ -4,9 +4,11 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
+        int[] calculationResult = new int[10];
+        int count = 0;
         Scanner sc = new Scanner(System.in);
 
-        while(true) {
+        while (true) {
             System.out.print("첫번째 숫자를 입력하세요 : ");
             int a = sc.nextInt();
             System.out.print("두번째 숫자를 입력하세요 : ");
@@ -45,11 +47,20 @@ public class App {
                     System.out.println("사칙연산을 다시 입력해주세요");
                     break;
             }
+            for (int i = 0; i < calculationResult.length; i++) {
+                calculationResult[i] = result;
+
+            }
+            count++;
+            System.out.println("count : " + count);
+
             System.out.println("더 계산하시겠습니까? (아무 문자 입력시 더 계산) (exit 입력 시 종료)");
             String src = sc.next();
-            if(src.equals("exit")){
+            
+            if (src.equals("exit")) {
                 break;
             }
+
 
         }
     }
