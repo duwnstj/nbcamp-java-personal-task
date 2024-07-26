@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Calculator {
 
-    List<Integer> results = new ArrayList<>();
+    private List<Integer> results = new ArrayList<>();
 
     public int calculate(int a, int b, String c) {
         int result = 0;
@@ -34,4 +34,13 @@ public class Calculator {
         }
         return result;
     }
+
+    public List<Integer> getResults() {
+        return results;
+    }
+
+//    public void setResults(List<Integer> results) {
+//        this.results = results;
+//    }
+
 }
