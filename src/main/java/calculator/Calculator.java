@@ -5,7 +5,11 @@ import java.util.List;
 
 public class Calculator {
 
-    private List<Integer> results = new ArrayList<>();
+    private List<Integer> results;
+
+    public Calculator() {
+        this.results = new ArrayList<>();
+    }
 
     public int calculate(int a, int b, String c) {
         int result = 0;

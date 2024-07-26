@@ -9,6 +9,7 @@ public class App {
     public static void main(String[] args) {
 
         Calculator abc = new Calculator();
+
         Scanner sc = new Scanner(System.in);
 
         while (true) {
@@ -18,6 +19,7 @@ public class App {
             int num2 = sc.nextInt();
             System.out.print("사칙연산 기호를 입력하세요 : ");
             String operator = sc.next();
+
 
             sc.nextLine();
             System.out.println("결과: " + abc.calculate(num1, num2, operator));
