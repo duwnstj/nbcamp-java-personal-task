@@ -29,6 +29,7 @@ public class App {
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력시 조회)");
             String str3 = sc.nextLine();
             if (str3.equals("inquiry")) {
+                d
                 for (int result1 : abc.getResults()) {
                     System.out.print("(" + result1 + ")");
                 }
