@@ -28,7 +28,7 @@ public class App {
                     System.out.println("원의 넓이 : " + abc2.calculateCircleArea(num3, num4));
                     System.out.println("저장된 원의 넓이 값들 : " + abc2.getCirResults());
                 }
-            } else {
+            } else if (choose == 2) {
                 System.out.print("첫번째 숫자를 입력하세요 : ");
                 int num1 = sc.nextInt();
                 System.out.print("두번째 숫자를 입력하세요 : ");

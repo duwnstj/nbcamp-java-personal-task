@@ -65,9 +65,7 @@ public class Calculator {
     }
 
     public List<Integer> getResults() {
-        for (double result2 : cirResults) {
-            System.out.print("(" + result2 + ")");
-        }
+
         return results;
     }
 
@@ -76,6 +74,7 @@ public class Calculator {
     }
 
     public List<Double> getCirResults() {
+
         return cirResults;
     }
 
