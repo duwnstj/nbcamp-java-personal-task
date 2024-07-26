@@ -35,6 +35,10 @@ public class Calculator {
         return result;
     }
 
+    public void removeResult() {
+        results.remove(0);
+    }
+
     public List<Integer> getResults() {
         return results;
     }
