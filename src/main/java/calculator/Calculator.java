@@ -13,17 +13,22 @@ public class Calculator {
 
             if (c.equals("+")) {
                 result = a + b;
-
+                results.add(result);
             } else if (c.equals("-")) {
                 result = a - b;
+                results.add(result);
             } else if (c.equals("*")) {
                 result = a * b;
+                results.add(result);
             } else if (c.equals("/")) {
                 result = a / b;
+                results.add(result);
             } else if (c.equals("%")) {
                 result = a % b;
+                results.add(result);
+            } else {
+                System.out.println("잘못된 사칙연산을 입력했어요");
             }
-            results.add(result);
         } catch (Exception e) {
             e.printStackTrace();
         }
