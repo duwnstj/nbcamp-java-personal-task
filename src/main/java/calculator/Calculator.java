@@ -39,12 +39,18 @@ public class Calculator {
         results.remove(0);
     }
 
+    public void inquiryResults() {
+        for (int result1 : results) {
+            System.out.print("(" + result1 + ")");
+        }
+    }
+
     public List<Integer> getResults() {
         return results;
     }
 
-//    public void setResults(List<Integer> results) {
-//        this.results = results;
-//    }
+    public void setResults(List<Integer> results) {
+        this.results = results;
+    }
 
 }
