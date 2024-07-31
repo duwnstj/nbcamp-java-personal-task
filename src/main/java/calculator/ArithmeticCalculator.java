@@ -22,16 +22,17 @@ public class ArithmeticCalculator extends Calculator {
     }
 
     private Operator operatorFactory(String operator) {
-        return switch (operator) {
+        OperatorType operatorType = OperatorType.fromOperator(operator);
+
+        return switch (operatorType) {
             //이렇게 생성하면 안좋은 점이 operator가 해당하는 값일 때
             // 계속 객체를 만든다는 점이다.
             // 메모리 측면에서는 좋지 않다.
-            case "+" -> new AddOperator();
-            case "-" -> new SubstractorOperator();
-            case "*" -> new MultiplyOperator();
-            case "/" -> new DivideOperator();
-            case "%" -> new ModOperator();
-            default -> throw new UnsupportedOperationException("올바른 선택이 아닙니다.");
+            case ADDITION -> new AddOperator();
+            case SUBSTRACTION -> new SubstractorOperator();
+            case MULTIPLICATION -> new MultiplyOperator();
+            case DIVISION -> new DivideOperator();
+            case MODULO -> new ModOperator();
         };
     }
 
