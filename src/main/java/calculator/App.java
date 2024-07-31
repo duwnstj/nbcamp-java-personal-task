@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        List<Double> circle = new ArrayList<>();
+        // 생성자를 통해 새로 ArrayList 리스트를 만들어 초기화 할 수 있다.
         ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator(new ArrayList<>());
         CircleCalculator circleCalculator = new CircleCalculator(new ArrayList<>());
 
