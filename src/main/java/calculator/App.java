@@ -8,8 +8,8 @@ import java.util.Scanner;
 public class App {
     public static void main(String[] args) {
         List<Double> circle = new ArrayList<>();
-        Calculator abc = new Calculator();
-        Calculator abc2 = new Calculator(circle);
+        ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator(new ArrayList<>());
+        CircleCalculator circleCalculator = new CircleCalculator(new ArrayList<>());
 
         Scanner sc = new Scanner(System.in);
 
@@ -19,15 +19,12 @@ public class App {
             int choose = sc.nextInt();
             if (choose == 1) {
                 System.out.println("원의 반지름을 입력하세요 : ");
-                int num3 = sc.nextInt();
-                System.out.println("원의 반지름을 입력하세요 : ");
-                int num4 = sc.nextInt();
-                if (num3 != num4) {
-                    System.out.println("반지름은 같아야합니다. 다시 입력해주세요");
-                } else {
-                    System.out.println("원의 넓이 : " + abc2.calculateCircleArea(num3, num4));
-                    System.out.println("저장된 원의 넓이 값들 : " + abc2.getCirResults());
-                }
+                int radius = sc.nextInt();
+
+                double area = circleCalculator.calculate(radius);
+                circleCalculator.getResults().add(area);
+                System.out.println("저장된 원의 넓이 전체 조회 : ");
+                circleCalculator.inquiryResults();
             } else if (choose == 2) {
                 System.out.print("첫번째 숫자를 입력하세요 : ");
                 int num1 = sc.nextInt();
@@ -38,17 +35,18 @@ public class App {
 
 
                 sc.nextLine();
-                System.out.println("결과: " + abc.calculate(num1, num2, operator));
+                double result = arithmeticCalculator.calculate(num1, num2, operator);
+                arithmeticCalculator.getResults().add(result);
                 System.out.println("가장 먼저 저장된 연산 결과를 삭제 하시겠습니까?  (remove 입력시 삭제)");
                 String str2 = sc.nextLine();
 
                 if (str2.equals("remove")) {
-                    abc.removeResult();
+                    arithmeticCalculator.removeResult(0);
                 }
                 System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력시 조회)");
                 String str3 = sc.nextLine();
                 if (str3.equals("inquiry")) {
-                    abc.inquiryResults();
+                    arithmeticCalculator.inquiryResults();
                     System.out.println();
                 }
                 System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
