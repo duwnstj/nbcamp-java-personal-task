@@ -9,13 +9,7 @@ public class App {
     public static void main(String[] args) {
         // 생성자를 통해 새로 ArrayList 리스트를 만들어 초기화 할 수 있다.
         // 오류가 나는 이유는 생성자 매개변수가 서로 다르기 때문이다 . 매개변수의 개수를 맞춰줘야한다.
-        ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator(
-                new ArrayList<>(),
-                new AddOperator(),
-                new SubstractorOperator(),
-                new MultiplyOperator(),
-                new DivideOperator()
-        );
+        ArithmeticCalculator arithmeticCalculator = new ArithmeticCalculator(new ArrayList<>());
         CircleCalculator circleCalculator = new CircleCalculator(new ArrayList<>());
 
         Scanner sc = new Scanner(System.in);

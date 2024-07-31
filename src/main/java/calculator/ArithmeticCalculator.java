@@ -9,48 +9,30 @@ public class ArithmeticCalculator extends Calculator {
     //        super(results);
     //    }
     // 이 녀석이 있기 때문에 초기화가 중복되서 안됐던 것이다.
-    private final AddOperator addOperator;
 
-    private final SubstractorOperator substractorOperator;
-
-    private final MultiplyOperator multiplyOperator;
-
-    private final DivideOperator divideOperator;
 
     // 생성자로 초기화
-    public ArithmeticCalculator(List<Double> results, AddOperator addOperator, SubstractorOperator substractorOperator,
-                                MultiplyOperator multiplyOperator, DivideOperator divideOperator) {
+    public ArithmeticCalculator(List<Double> results) {
         super(results);
-        this.addOperator = addOperator;
-        this.substractorOperator = substractorOperator;
-        this.multiplyOperator = multiplyOperator;
-        this.divideOperator = divideOperator;
     }
 
 
     public double calculate(int a, int b, String c) {
-        int result = 0;
-        try {
+        return operatorFactory(c).operate(a, b);
+    }
 
-            if (c.equals("+")) {
-                result = addOperator.operate(a, b);
-
-            } else if (c.equals("-")) {
-                result = substractorOperator.operate(a, b);
-
-            } else if (c.equals("*")) {
-                result = multiplyOperator.operate(a, b);
-
-            } else if (c.equals("/")) {
-                result = divideOperator.operate(a, b);
-
-            } else {
-                System.out.println("잘못된 사칙연산을 입력했어요");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return result;
+    private Operator operatorFactory(String operator) {
+        return switch (operator) {
+            //이렇게 생성하면 안좋은 점이 operator가 해당하는 값일 때
+            // 계속 객체를 만든다는 점이다.
+            // 메모리 측면에서는 좋지 않다.
+            case "+" -> new AddOperator();
+            case "-" -> new SubstractorOperator();
+            case "*" -> new MultiplyOperator();
+            case "/" -> new DivideOperator();
+            case "%" -> new ModOperator();
+            default -> throw new UnsupportedOperationException("올바른 선택이 아닙니다.");
+        };
     }
 
     @Override
